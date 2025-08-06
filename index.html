@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structor by Cubicle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="welcome" class="section">
+        <img src="wrench-icon.png" alt="Wrench Icon" class="icon">
+        <h1>WELCOME TO THE STRUCTOR</h1>
+        <h2>BY CUBICLE</h2>
+        <button class="btn blue" onclick="showSection('logging')">Log in</button>
+        <div>OR</div>
+        <button class="btn blue" onclick="showSection('signing')">Sign Up</button>
+        <p>Made in Kazakhstan</p>
+    </div>
+
+    <div id="logging" class="section hidden">
+        <h3>Logging in</h3>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <label>Your Phone No.</label><input type="text" required>
+            <label>Your Password</label><input type="password" required>
+            <label>Username</label><input type="text" required>
+            <button type="submit" class="btn purple">Log in</button>
+        </form>
+    </div>
+
+    <div id="signing" class="section hidden">
+        <h3>Signing up</h3>
+        <form id="signupForm" onsubmit="handleSignup(event)">
+            <label>Username (New) *</label><input type="text" required>
+            <label>Phone No. **</label><input type="text" required>
+            <label>New Password *</label><input type="password" required>
+            <label>Confirm Pass. **</label><input type="password" required>
+            <button type="submit" class="btn purple">Sign up!</button>
+        </form>
+    </div>
+
+    <div id="projects" class="section hidden">
+        <h3>YOUR PROJECTS</h3>
+        <p>UP TO 5 WEBSITES</p>
+        <div class="project-cell">
+            <button class="btn blue">EXAMPLE</button>
+            <button class="btn-icon delete" onclick="deleteProject()">🗑️</button>
+            <button class="btn-icon edit" onclick="editProject()">✏️</button>
+        </div>
+        <button class="btn blue add" onclick="showSection('newProject')">+</button>
+    </div>
+
+    <div id="newProject" class="section hidden">
+        <h3>NEW PROJECT</h3>
+        <button class="btn blue" onclick="addPage('Page 1')">Page 1</button>
+        <button class="btn blue" onclick="addPage('Page 2')">Page 2</button>
+        <button class="btn blue" onclick="addPage('Page 3')">Page 3</button>
+        <button class="btn blue" onclick="addPage('Page 4')">Page 4</button>
+        <button class="btn blue" onclick="addPage('Page 5')">Page 5</button>
+    </div>
+
+    <div id="pageEditor" class="section hidden">
+        <h3>PAGE</h3>
+        <button class="btn purple" onclick="showBlocksMenu()">Blocks</button>
+        <button class="btn purple" onclick="showSaveDialog()">Save</button>
+        <button class="btn purple heart" onclick="showDonateDialog()">❤️</button>
+        <div id="blocksContainer" class="blocks-container"></div>
+    </div>
+
+    <div id="saveDialog" class="dialog hidden">
+        <h4>Save Your Project</h4>
+        <label>Your domain: <input type="text" id="domainInput" oninput="checkDomain()"></label>
+        <p id="domainStatus"></p>
+        <button class="btn purple" onclick="saveProject()">Save</button>
+    </div>
+
+    <div id="donateDialog" class="dialog hidden">
+        <h4>Donate to Structor</h4>
+        <p>Every single donation is helping our team and Structor grow better!<br>If you own Kaspi.kz, you may send between 3000 and 5000 KZT to +7 747 907 9100. Thank you so much! We will remember you.</p>
+        <button class="btn purple" onclick="hideDonateDialog()">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
