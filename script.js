@@ -96,14 +96,6 @@ function saveProject() {
     });
 }
 
-function showDonateDialog() {
-    document.getElementById('donateDialog').classList.remove('hidden');
-}
-
-function hideDonateDialog() {
-    document.getElementById('donateDialog').classList.add('hidden');
-}
-
 function deleteProject() {
     // Implement deletion logic
 }
